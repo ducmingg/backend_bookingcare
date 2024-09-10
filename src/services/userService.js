@@ -1,6 +1,6 @@
-import db from "../models/index.js";
+const db = require("../models/index.js");
 
-export const createNewUser = async (data) => {
+const createNewUser = async (data) => {
   return new Promise(async (resolve, reject) => {
     try {
       await db.User.create({
@@ -18,3 +18,5 @@ export const createNewUser = async (data) => {
     }
   });
 };
+
+module.exports = { createNewUser };

@@ -27,7 +27,7 @@ fs.readdirSync(__dirname)
       file.indexOf(".") !== 0 &&
       file !== basename &&
       file.slice(-3) === ".js" &&
-      file.indexOf(".test.js") === -1 
+      file.indexOf(".test.js") === -1
     );
   })
   .forEach((file) => {

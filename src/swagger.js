@@ -1,5 +1,5 @@
-import swaggerJsdoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 const options = {
   definition: {
@@ -10,7 +10,6 @@ const options = {
       version: "1.0.0",
     },
   },
-  // looks for configuration in specified directories
   apis: ["src/route/web.js"],
 };
 
@@ -27,4 +26,4 @@ function swaggerDocs(app, port) {
   });
 }
 
-export default swaggerDocs;
+module.exports = { swaggerDocs }; // Sửa từ module.export thành module.exports

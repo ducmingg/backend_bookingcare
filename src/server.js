@@ -1,7 +1,7 @@
-import dotenv from "dotenv";
-import express from "express";
-import initWebRouter from "./route/web.js";
-import swaggerDocs from "./swagger.js";
+const dotenv = require("dotenv");
+const express = require("express");
+const initWebRouter = require("./route/web.js");
+const {swaggerDocs} = require("./swagger.js");
 
 dotenv.config();
 let app = express();

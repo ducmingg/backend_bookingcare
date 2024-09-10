@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Allcode.init(
     {
-      id: DataTypes.INTERGER,
       key: DataTypes.STRING,
       type: DataTypes.STRING,
       valueEn: DataTypes.STRING,
