@@ -39,6 +39,12 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
+      createdAt: {
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

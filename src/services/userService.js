@@ -1,16 +1,17 @@
 const db = require("../models/index.js");
 
-const createNewUser = async (data) => {
+const create = async (data) => {
   return new Promise(async (resolve, reject) => {
     try {
+      console.log("data",data);
       await db.User.create({
-        email: data.email,
-        password: data.password,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        address: data.address,
-        gender: data.gender === "1" ? true : false,
-        roleId: data.roleId,
+        email: data.message.email,
+        password: data.message.password,
+        firstName: data.message.firstName,
+        lastName: data.message.lastName,
+        address: data.message.address,
+        gender: data.message.gender === "1" ? true : false,
+        roleId: data.message.roleId,
       });
       resolve();
     } catch (error) {
@@ -19,4 +20,4 @@ const createNewUser = async (data) => {
   });
 };
 
-module.exports = { createNewUser };
+module.exports = { create };
