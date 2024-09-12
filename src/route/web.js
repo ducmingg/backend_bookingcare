@@ -1,6 +1,6 @@
 // src/routes/userRoutes.js
 const express = require("express");
-const { createNewUser } = require("../controllers/userController.js");
+const { createNewUser,getAllUser,editUser } = require("../controllers/userController.js");
 
 const router = express.Router();
 
@@ -63,18 +63,20 @@ const initWebRouter = (app) => {
    *                 message:
    *                   type: string
    *                   example: User registered successfully
-   *       400:
-   *         description: Invalid input
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: object
-   *               properties:
-   *                 error:
-   *                   type: string
-   *                   example: Invalid input data
    */
   router.post("/register", createNewUser);
+  /**
+   * @swagger
+   * /getall:
+   *   get:
+   *     summary: Get all users
+   *     responses:
+   *       200:
+   *         description: Success
+   */
+  router.get("/getall",getAllUser)
+
+  router.patch("/edit/:id",editUser)
   return app.use("/", router);
 };
 
