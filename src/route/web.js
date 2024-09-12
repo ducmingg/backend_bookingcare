@@ -1,6 +1,6 @@
 // src/routes/userRoutes.js
 const express = require("express");
-const { createNewUser,getAllUser,editUser } = require("../controllers/userController.js");
+const { createNewUser,getAllUser,editUser,deleteUser } = require("../controllers/userController.js");
 
 const router = express.Router();
 
@@ -77,6 +77,8 @@ const initWebRouter = (app) => {
   router.get("/getall",getAllUser)
 
   router.patch("/edit/:id",editUser)
+
+  router.delete("/delete/:id",deleteUser)
   return app.use("/", router);
 };
 
