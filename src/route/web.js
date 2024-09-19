@@ -1,6 +1,6 @@
 // src/routes/userRoutes.js
 const express = require("express");
-const { createNewUser,getAllUser,editUser,deleteUser } = require("../controllers/userController.js");
+const { createNewUser,getAllUser,editUser,deleteUser,loginUser } = require("../controllers/userController.js");
 
 const router = express.Router();
 
@@ -65,6 +65,9 @@ const initWebRouter = (app) => {
    *                   example: User registered successfully
    */
   router.post("/register", createNewUser);
+
+  router.post("/login",loginUser)
+
   /**
    * @swagger
    * /getall:
