@@ -1,20 +1,25 @@
 const { where } = require("sequelize");
 const db = require("../models/index.js");
+const bcrypt = require("bcrypt");
 
 const create = async (data) => {
   try {
+    const password = data.message.password;
+    const passHash = await bcrypt.hash(password+"", 10);
     await db.User.create({
       email: data.message.email,
-      password: data.message.password,
+      password: passHash,
       firstName: data.message.firstName,
       lastName: data.message.lastName,
       address: data.message.address,
       gender: data.message.gender === "1" ? true : false,
       roleId: data.message.roleId,
     });
-    resolve("ok");
+    return "ok";
   } catch (error) {
-    reject(error);
+    console.log("error", error);
+
+    return error;
   }
 };
 

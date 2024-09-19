@@ -1,4 +1,4 @@
-const { create, findAll, edit,del } = require("../services/userService.js");
+const { create, findAll, edit, del } = require("../services/userService.js");
 const createNewUser = async (req, res) => {
   const data = req.body;
   const message = await create(data);
@@ -28,7 +28,7 @@ const editUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   const id = req.params.id;
   const msg = await del(id);
-  console.log(msg)
+  console.log(msg);
   if (msg == "ok") {
     return res.status(200).json({ message: "Delete success" });
   } else {
